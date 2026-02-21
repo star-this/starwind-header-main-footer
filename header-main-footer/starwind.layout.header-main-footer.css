@@ -1,0 +1,23 @@
+@layer starwind.layout {
+    :where(sw-header-main-footer) {
+        display: flex;
+        flex-direction: column;
+        min-block-size: var(--sw-hmf-min, 100vh);
+        padding: var(--sw-hmf-pad, var(--sw-space-s-m, 1rem));
+        gap: var(--sw-hmf-gap, var(--sw-gap, var(--sw-space-s-m, 1rem)));
+    }
+
+    :where(sw-header-main-footer) > :where([centered]) {
+        margin-block: auto;
+    }
+
+    :where(sw-header-main-footer:not([no-header])) > :where(:first-child) {
+        min-block-size: var(--sw-hmf-header-min, auto);
+        max-block-size: var(--sw-hmf-header-max, none);
+    }
+
+    :where(sw-header-main-footer:not([no-footer])) > :where(:last-child) {
+        min-block-size: var(--sw-hmf-footer-min, auto);
+        max-block-size: var(--sw-hmf-footer-max, none);
+    }
+}
